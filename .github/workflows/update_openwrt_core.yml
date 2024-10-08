@@ -1,0 +1,58 @@
+name: Update OpenWrt Core
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [sync]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: openwrt_core - [${{ matrix.target }}]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      matrix:
+        target:
+          - aarch64_generic
+          - x86_64
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: gh-pages
+
+      - name: Setup variables
+        run: |
+          sudo timedatectl set-timezone 'Asia/Shanghai'
+          if [ "${{ matrix.target }}" = "aarch64_generic" ]; then
+            echo "target=aarch64-6.12" >> "$GITHUB_ENV"
+          elif [ "${{ matrix.target }}" = "x86_64" ]; then
+            echo "target=x86_64-6.12" >> "$GITHUB_ENV"
+          fi
+
+      - name: Sync kernel modules
+        run: |
+          kmod=$(curl -sk "https://api.github.com/repos/pmkol/openwrt-plus/releases" | grep "browser_download_url" | grep "${{ env.target }}" | tail -1 | awk '{print $2}' | sed 's/\"//g')
+          kmod_name=$(basename $kmod | sed 's/\.tar\.gz$//;s/^[^-]*-//')
+          rm -rf $kmod_name
+          curl -L $kmod -o $kmod_name.tar.gz --progress-bar
+          mkdir -p openwrt_core/${{ matrix.target }}
+          tar zxf $kmod_name.tar.gz -C openwrt_core/${{ matrix.target }} && rm -f $kmod_name.tar.gz
+          echo "RELEASE_NAME=$kmod_name" >> "$GITHUB_ENV"
+          echo $kmod_name
+
+      - name: Git push
+        continue-on-error: true
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          [ -d .git ] && git init
+          git add openwrt_core/${{ matrix.target }}
+          git commit -sm "${{ env.RELEASE_NAME }}"
+          git push "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" HEAD:gh-pages --force
