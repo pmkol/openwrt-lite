@@ -1,0 +1,327 @@
+### Curl
+CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_libcurl=y
+CONFIG_LIBCURL_NGHTTP3=y
+CONFIG_LIBCURL_NGTCP2=y
+CONFIG_LIBCURL_OPENSSL=y
+# CONFIG_LIBCURL_GNUTLS is not set
+# CONFIG_LIBCURL_MBEDTLS is not set
+# CONFIG_LIBCURL_NOSSL is not set
+# CONFIG_LIBCURL_WOLFSSL is not set
+
+### Firewall
+CONFIG_PACKAGE_nat6=y
+CONFIG_PACKAGE_ip6tables-nft=y
+CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
+CONFIG_PACKAGE_iptables-mod-iprange=y
+CONFIG_PACKAGE_iptables-mod-nat-extra=y
+CONFIG_PACKAGE_iptables-mod-socket=y
+CONFIG_PACKAGE_iptables-mod-tproxy=y
+CONFIG_PACKAGE_iptables-nft=y
+CONFIG_PACKAGE_xtables-nft=y
+# CONFIG_PACKAGE_iptables-legacy is not set
+
+# Natflow
+CONFIG_PACKAGE_natflow=m
+
+# SFE
+CONFIG_PACKAGE_kmod-fast-classifier=y
+CONFIG_PACKAGE_kmod-shortcut-fe-cm=y
+
+### Zram
+CONFIG_PACKAGE_zram-swap=y
+CONFIG_PACKAGE_kmod-lib-lz4=y
+CONFIG_PACKAGE_kmod-lib-lzo=y
+CONFIG_PACKAGE_kmod-lib-zstd=y
+
+### Busybox
+CONFIG_BUSYBOX_CUSTOM=y
+CONFIG_BUSYBOX_CONFIG_ASH_HELP=y
+CONFIG_BUSYBOX_CONFIG_FEATURE_EDITING_HISTORY=1024
+CONFIG_BUSYBOX_CONFIG_FEATURE_EDITING_SAVEHISTORY=y
+CONFIG_BUSYBOX_CONFIG_FEATURE_PREFER_IPV4_ADDRESS=y
+CONFIG_BUSYBOX_CONFIG_FEATURE_SH_HISTFILESIZE=y
+CONFIG_BUSYBOX_CONFIG_FEATURE_SYSLOG_INFO=y
+
+### Dnsmasq
+CONFIG_PACKAGE_dnsmasq-full=y
+CONFIG_PACKAGE_dnsmasq_full_ipset=y
+# CONFIG_PACKAGE_dnsmasq_full_broken_rtc is not set
+# CONFIG_PACKAGE_dnsmasq is not set
+
+### Docker
+CONFIG_DOCKER_CGROUP_OPTIONS=y
+CONFIG_DOCKER_NET_ENCRYPT=y
+CONFIG_DOCKER_NET_MACVLAN=y
+CONFIG_DOCKER_NET_OVERLAY=y
+CONFIG_DOCKER_NET_TFTP=y
+CONFIG_DOCKER_OPTIONAL_FEATURES=y
+CONFIG_DOCKER_STO_BTRFS=y
+CONFIG_DOCKER_STO_EXT4=y
+CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_luci-lib-docker=y
+CONFIG_PACKAGE_docker-compose=y
+
+### Luci
+CONFIG_PACKAGE_luci=y
+CONFIG_PACKAGE_luci-lib-base=y
+CONFIG_PACKAGE_luci-lib-ip=y
+CONFIG_PACKAGE_luci-lib-ipkg=y
+CONFIG_PACKAGE_luci-lib-jsonc=y
+CONFIG_PACKAGE_luci-lib-nixio=y
+# CONFIG_PACKAGE_luci-nginx is not set
+CONFIG_PACKAGE_luci-proto-wireguard=y
+CONFIG_PACKAGE_luci-theme-argon=y
+# CONFIG_PACKAGE_luci-theme-material is not set
+# CONFIG_PACKAGE_luci-theme-openwrt-2020 is not set
+# CONFIG_PACKAGE_nginx-all-module is not set
+CONFIG_LUCI_LANG_zh_Hans=y
+# CONFIG_LUCI_CSSTIDY is not set
+# CONFIG_LUCI_JSMIN is not set
+
+### APPS
+CONFIG_PACKAGE_luci-app-accesscontrol=y
+# CONFIG_PACKAGE_luci-app-airconnect is not set
+# CONFIG_PACKAGE_luci-app-airplay2 is not set
+# CONFIG_PACKAGE_luci-app-alist is not set
+CONFIG_PACKAGE_luci-app-argon-config=y
+CONFIG_PACKAGE_luci-app-aria2=y
+CONFIG_PACKAGE_luci-app-autoreboot=y
+CONFIG_PACKAGE_luci-app-commands=y
+CONFIG_PACKAGE_luci-app-cpufreq=y
+# CONFIG_PACKAGE_luci-app-daed is not set
+# CONFIG_PACKAGE_luci-app-ddns is not set
+CONFIG_PACKAGE_luci-app-ddns-go=y
+CONFIG_PACKAGE_luci-app-diskman=y
+CONFIG_PACKAGE_luci-app-eqos=y
+# CONFIG_PACKAGE_luci-app-filebrowser is not set
+CONFIG_PACKAGE_luci-app-frpc=y
+CONFIG_PACKAGE_luci-app-hd-idle=y
+# CONFIG_PACKAGE_luci-app-gowebdav is not set
+# CONFIG_PACKAGE_luci-app-mentohust is not set
+CONFIG_PACKAGE_luci-app-mosdns=y
+# CONFIG_PACKAGE_luci-app-natmap is not set
+# CONFIG_PACKAGE_luci-app-netdata is not set
+CONFIG_PACKAGE_luci-app-netspeedtest=y
+CONFIG_PACKAGE_luci-app-nlbwmon=y
+# CONFIG_PACKAGE_luci-app-oaf is not set
+# CONFIG_PACKAGE_luci-app-qbittorrent is not set
+# CONFIG_PACKAGE_luci-app-qbittorrent_dynamic is not set
+CONFIG_PACKAGE_luci-app-ramfree=y
+CONFIG_PACKAGE_luci-app-samba4=y
+CONFIG_PACKAGE_luci-app-socat=y
+CONFIG_PACKAGE_luci-app-sqm=y
+CONFIG_PACKAGE_luci-app-ttyd=y
+# CONFIG_PACKAGE_luci-app-uhttpd is not set
+# CONFIG_PACKAGE_luci-app-unblockneteasemusic is not set
+CONFIG_PACKAGE_luci-app-upnp=y
+# CONFIG_PACKAGE_luci-app-usb-printer is not set
+# CONFIG_PACKAGE_luci-app-vlmcsd is not set
+CONFIG_PACKAGE_luci-app-watchcat=y
+# CONFIG_PACKAGE_luci-app-wireguard is not set
+CONFIG_PACKAGE_luci-app-wolplus=y
+# CONFIG_PACKAGE_luci-app-xfrpc is not set
+CONFIG_PACKAGE_luci-app-zerotier=y
+# CONFIG_PACKAGE_ariang-nginx is not set
+
+### ImmortalWrt Proxy - nft
+# CONFIG_PACKAGE_luci-app-homeproxy is not set
+
+### Mihomo
+CONFIG_PACKAGE_luci-app-mihomo=y
+
+### Passwall
+CONFIG_PACKAGE_luci-app-passwall=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_NaiveProxy=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_SingBox=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Geodata=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Hysteria is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Client is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Server is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Server is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_tuic_client is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin is not set
+
+### DDNS Scripts
+# CONFIG_PACKAGE_ddns-scripts is not set
+# CONFIG_PACKAGE_ddns-scripts-aliyun is not set
+# CONFIG_PACKAGE_ddns-scripts-cloudflare is not set
+# CONFIG_PACKAGE_ddns-scripts-dnspod is not set
+# CONFIG_PACKAGE_ddns-scripts-freedns is not set
+# CONFIG_PACKAGE_ddns-scripts-godaddy is not set
+# CONFIG_PACKAGE_ddns-scripts-services is not set
+
+### L2TP
+# CONFIG_PACKAGE_kmod-l2tp is not set
+# CONFIG_PACKAGE_kmod-pppol2tp is not set
+# CONFIG_PACKAGE_ppp-mod-pppol2tp is not set
+# CONFIG_PACKAGE_xl2tpd is not set
+
+### OpenSSL
+CONFIG_OPENSSL_ENGINE=y
+CONFIG_OPENSSL_OPTIMIZE_SPEED=y
+CONFIG_OPENSSL_WITH_ASM=y
+CONFIG_PACKAGE_libopenssl-afalg=y
+CONFIG_PACKAGE_libopenssl-conf=y
+CONFIG_PACKAGE_libopenssl-devcrypto=y
+CONFIG_PACKAGE_libopenssl-legacy=y
+CONFIG_PACKAGE_openssl-util=y
+# CONFIG_PACKAGE_libopenssl-padlock is not set
+# CONFIG_OPENSSL_WITH_ERROR_MESSAGES is not set
+
+### Share Network
+CONFIG_PACKAGE_usbmuxd=y
+CONFIG_PACKAGE_kmod-usb-net-rndis=y
+CONFIG_PACKAGE_kmod-usb-net-ipheth=y
+
+### Kernel Modules
+CONFIG_PACKAGE_kmod-br-netfilter=y
+CONFIG_PACKAGE_kmod-button-hotplug=y
+CONFIG_PACKAGE_kmod-crypto-chacha20poly1305=y
+CONFIG_PACKAGE_kmod-crypto-sha256=y
+CONFIG_PACKAGE_kmod-fs-exfat=y
+CONFIG_PACKAGE_kmod-fs-f2fs=y
+CONFIG_PACKAGE_kmod-fs-ntfs3=y
+CONFIG_PACKAGE_kmod-fs-vfat=y
+CONFIG_PACKAGE_kmod-fs-xfs=y
+CONFIG_PACKAGE_kmod-hwmon-pwmfan=y
+CONFIG_PACKAGE_kmod-ikconfig=y
+CONFIG_PACKAGE_kmod-inet-diag=y
+CONFIG_PACKAGE_kmod-ipsec4=y
+CONFIG_PACKAGE_kmod-ipsec6=y
+CONFIG_PACKAGE_kmod-ipt-nat6=y
+CONFIG_PACKAGE_kmod-ipt-tproxy=y
+CONFIG_PACKAGE_kmod-iptunnel6=y
+CONFIG_PACKAGE_kmod-mac80211=y
+CONFIG_PACKAGE_kmod-nf-socket=y
+CONFIG_PACKAGE_kmod-nft-fullcone=y
+CONFIG_PACKAGE_kmod-nft-offload=y
+CONFIG_PACKAGE_kmod-nft-socket=y
+CONFIG_PACKAGE_kmod-nft-tproxy=y
+CONFIG_PACKAGE_kmod-nls-cp936=y
+CONFIG_PACKAGE_kmod-nls-cp950=y
+CONFIG_PACKAGE_kmod-sched=y
+CONFIG_PACKAGE_kmod-tcp-bbr3=y
+CONFIG_PACKAGE_kmod-tcp-brutal=y
+CONFIG_PACKAGE_kmod-tls=y
+CONFIG_PACKAGE_kmod-tun=y
+CONFIG_PACKAGE_kmod-usb-audio=y
+CONFIG_PACKAGE_kmod-usb-hid=y
+CONFIG_PACKAGE_kmod-usb-storage-uas=y
+CONFIG_PACKAGE_kmod-usb2-pci=y
+CONFIG_PACKAGE_kmod-usb2=y
+CONFIG_PACKAGE_kmod-usb3=y
+
+### Kernel Modules - out-of-tree driver
+CONFIG_PACKAGE_kmod-usb-net-rtl8152-vendor=y
+
+### Kernel Modules - USB WiFi Adapter
+CONFIG_PACKAGE_kmod-mt7921u=y
+
+### Utilities
+CONFIG_PACKAGE_bash=y
+CONFIG_PACKAGE_bind-dig=y
+CONFIG_PACKAGE_dmesg=y
+CONFIG_PACKAGE_dosfstools=y
+CONFIG_PACKAGE_exfat-fsck=y
+CONFIG_PACKAGE_exfat-mkfs=y
+CONFIG_PACKAGE_f2fs-tools=y
+CONFIG_PACKAGE_fdisk=y
+CONFIG_PACKAGE_file=y
+CONFIG_PACKAGE_fstrim=y
+CONFIG_PACKAGE_ftp=y
+CONFIG_PACKAGE_gdisk=y
+CONFIG_PACKAGE_htop=y
+CONFIG_PACKAGE_iperf3=y
+CONFIG_PACKAGE_iputils-ping=y
+CONFIG_PACKAGE_less=y
+CONFIG_PACKAGE_lrzsz=y
+CONFIG_PACKAGE_lsblk=y
+CONFIG_PACKAGE_lscpu=y
+CONFIG_PACKAGE_lsof=y
+CONFIG_PACKAGE_nethogs=y
+CONFIG_PACKAGE_openssh-sftp-server=y
+CONFIG_PACKAGE_pciutils=y
+CONFIG_PACKAGE_qrencode=y
+CONFIG_PACKAGE_rename=y
+CONFIG_PACKAGE_resize2fs=y
+CONFIG_PACKAGE_rsync=y
+CONFIG_PACKAGE_screen=y
+CONFIG_PACKAGE_sed=y
+CONFIG_PACKAGE_sshpass=y
+CONFIG_PACKAGE_sudo=y
+CONFIG_PACKAGE_tar=y
+CONFIG_PACKAGE_taskset=y
+CONFIG_PACKAGE_telnet-bsd=y
+CONFIG_PACKAGE_tree=y
+CONFIG_PACKAGE_unzip=y
+CONFIG_PACKAGE_usbutils=y
+CONFIG_PACKAGE_vim=y
+CONFIG_PACKAGE_wget-ssl=y
+CONFIG_PACKAGE_wpad-openssl=y
+CONFIG_PACKAGE_xfs-admin=y
+CONFIG_PACKAGE_xfs-fsck=y
+CONFIG_PACKAGE_xfs-growfs=y
+CONFIG_PACKAGE_xfs-mkfs=y
+CONFIG_PACKAGE_xz-utils=y
+CONFIG_PACKAGE_xz=y
+CONFIG_PACKAGE_zip=y
+CONFIG_PACKAGE_zoneinfo-asia=y
+
+### Shadow Utilities
+CONFIG_PACKAGE_shadow-chgpasswd=y
+CONFIG_PACKAGE_shadow-chpasswd=y
+CONFIG_PACKAGE_shadow-gpasswd=y
+CONFIG_PACKAGE_shadow-groupadd=y
+CONFIG_PACKAGE_shadow-groupdel=y
+CONFIG_PACKAGE_shadow-groupmod=y
+CONFIG_PACKAGE_shadow-groups=y
+CONFIG_PACKAGE_shadow-login=y
+CONFIG_PACKAGE_shadow-nologin=y
+CONFIG_PACKAGE_shadow-passwd=y
+CONFIG_PACKAGE_shadow-su=y
+CONFIG_PACKAGE_shadow-useradd=y
+CONFIG_PACKAGE_shadow-userdel=y
+CONFIG_PACKAGE_shadow-usermod=y
+CONFIG_PACKAGE_shadow-utils=y
+
+### GNU Core Utilities
+CONFIG_PACKAGE_coreutils=y
+CONFIG_PACKAGE_coreutils-cat=y
+CONFIG_PACKAGE_coreutils-chmod=y
+CONFIG_PACKAGE_coreutils-chown=y
+CONFIG_PACKAGE_coreutils-chroot=y
+CONFIG_PACKAGE_coreutils-cp=y
+CONFIG_PACKAGE_coreutils-date=y
+CONFIG_PACKAGE_coreutils-dd=y
+CONFIG_PACKAGE_coreutils-dircolors=y
+CONFIG_PACKAGE_coreutils-ls=y
+CONFIG_PACKAGE_coreutils-mkdir=y
+CONFIG_PACKAGE_coreutils-mv=y
+CONFIG_PACKAGE_coreutils-nproc=y
+CONFIG_PACKAGE_coreutils-rm=y
+CONFIG_PACKAGE_coreutils-sha1sum=y
+CONFIG_PACKAGE_coreutils-sha512sum=y
+CONFIG_PACKAGE_coreutils-sleep=y
+CONFIG_PACKAGE_coreutils-timeout=y
+CONFIG_PACKAGE_coreutils-truncate=y
+
+### procps-ng Utilities
+CONFIG_PACKAGE_procps-ng=y
+CONFIG_PACKAGE_procps-ng-free=y
+CONFIG_PACKAGE_procps-ng-ps=y
+CONFIG_PACKAGE_procps-ng-top=y
+
+### Version
+CONFIG_IMAGEOPT=y
+CONFIG_VERSIONOPT=y
+CONFIG_VERSION_FILENAMES=y
+
+### ZLIB
+CONFIG_ZLIB_OPTIMIZE_SPEED=y
