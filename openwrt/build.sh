@@ -239,11 +239,14 @@ fi
 echo -e "\n${GREEN_COLOR}Patching ...${RES}\n"
 
 # scripts
+
 curl -sO https://$mirror/openwrt/scripts/00-prepare_base.sh
 curl -sO https://$mirror/openwrt/scripts/01-prepare_base-mainline.sh
 curl -sO https://$mirror/openwrt/scripts/02-prepare_package.sh
 curl -sO https://$mirror/openwrt/scripts/03-convert_translation.sh
+export mirror=raw.githubusercontent.com/pmkol/test/build
 curl -sO https://$mirror/openwrt/scripts/04-fix_kmod.sh
+export mirror=raw.githubusercontent.com/pmkol/openwrt-lite/main
 curl -sO https://$mirror/openwrt/scripts/05-fix-source.sh
 #curl -sO https://$mirror/openwrt/scripts/10-customize-config.sh
 #curl -sO https://$mirror/openwrt/scripts/11-fix-vendor.sh
