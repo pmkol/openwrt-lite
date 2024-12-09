@@ -252,14 +252,13 @@ else
 fi
 
 # config-common
-[ "$CONFIG_CUSTOM" = "y" ] && curl -s https://$mirror/openwrt/23-config-common-custom >> .config
+#[ "$CONFIG_CUSTOM" = "y" ] && curl -s https://$mirror/openwrt/23-config-common-custom >> .config
 if [ "$MINIMAL_BUILD" = "y" ]; then
-
-    curl -s https://$mirror/openwrt/23-config-common-lite | $cfg_cmd >> .config
+    curl -s https://$mirror/openwrt/23-config-common-lite >> .config
     sed -i '/DOCKER/Id' .config
     echo 'VERSION_TYPE="lite"' >> package/base-files/files/usr/lib/os-release
 else
-    curl -s https://$mirror/openwrt/23-config-common-server | $cfg_cmd >> .config
+    curl -s https://$mirror/openwrt/23-config-common-server >> .config
     echo 'VERSION_TYPE="server"' >> package/base-files/files/usr/lib/os-release
 fi
 
