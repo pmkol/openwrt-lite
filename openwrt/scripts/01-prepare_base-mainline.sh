@@ -91,14 +91,6 @@ pushd target/linux/generic/hack-6.11
     curl -Os https://$mirror/openwrt/patch/kernel-6.11/lrng/011-LRNG-0025-LRNG-add-hwrand-framework-interface.patch
 popd
 
-# linux-firmware: rtw89 / rtl8723d / rtl8821c /i915 firmware
-rm -rf package/firmware/linux-firmware
-git clone https://$github/sbwml/package_firmware_linux-firmware package/firmware/linux-firmware
-
-# ath10k-ct
-rm -rf package/kernel/ath10k-ct
-git clone https://$github/sbwml/package_kernel_ath10k-ct package/kernel/ath10k-ct -b v6.11
-
 # kernel patch
 # btf: silence btf module warning messages
 curl -s https://$mirror/openwrt/patch/kernel-6.11/btf/990-btf-silence-btf-module-warning-messages.patch > target/linux/generic/hack-6.11/990-btf-silence-btf-module-warning-messages.patch
