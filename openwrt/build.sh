@@ -236,6 +236,7 @@ rm -rf ../master
 ([ "$GITHUB_REPO" != "pmkol/openwrt-lite" ] || [ "$DEV_BUILD" = "y" ]) && export CONFIG_CUSTOM=y
 if [ "$CONFIG_CUSTOM" = "y" ]; then
     export cfg=custom
+    export sed_cfg=" | sed '/### APPS/,\$d'"
 else
     [ "$MINIMAL_BUILD" = "y" ] && export cfg=lite || export cfg=server
 fi
@@ -252,11 +253,11 @@ fi
 # config-common
 [ "$CONFIG_CUSTOM" = "y" ] && curl -s https://$mirror/openwrt/23-config-common-custom >> .config
 if [ "$MINIMAL_BUILD" = "y" ]; then
-    curl -s https://$mirror/openwrt/23-config-common-lite$([ "$CONFIG_CUSTOM" = "y" ] && echo " | sed '/### APPS/,$d'") >> .config
+    curl -s https://$mirror/openwrt/23-config-common-lite$([ "$CONFIG_CUSTOM" = "y" ] && echo "$sed_cfg") >> .config
     sed -i '/DOCKER/Id' .config
     echo 'VERSION_TYPE="lite"' >> package/base-files/files/usr/lib/os-release
 else
-    curl -s https://$mirror/openwrt/23-config-common-server$([ "$CONFIG_CUSTOM" = "y" ] && echo " | sed '/### APPS/,$d'") >> .config
+    curl -s https://$mirror/openwrt/23-config-common-server$([ "$CONFIG_CUSTOM" = "y" ] && echo "$sed_cfg") >> .config
     echo 'VERSION_TYPE="server"' >> package/base-files/files/usr/lib/os-release
 fi
 
