@@ -242,7 +242,7 @@ fi
 
 # config-devices
 if [ "$platform" = "x86_64" ]; then
-    curl -s https://$mirror/openwrt/23-config-musl-x86$([ "$CONFIG_CUSTOM" = "y" ] && echo "-dev") > .config
+    curl -s https://$mirror/openwrt/23-config-musl-x86$([ "$DEV_BUILD" = "y" ] && echo "-dev") > .config
 elif [ "$platform" = "rk3568" ]; then
     curl -s https://$mirror/openwrt/23-config-musl-r5s > .config
 else
@@ -328,6 +328,7 @@ fi
 rm -rf tmp/*
 echo "CONFIG_CUSTOM: $CONFIG_CUSTOM"
 echo "MINIMAL_BUILD: $MINIMAL_BUILD"
+echo "23-config-musl-x86$([ "$CONFIG_CUSTOM" = "y" ] && echo " | sed '/### APPS/,$d'")"
 if [ "$BUILD" = "n" ]; then
     exit 0
 else
