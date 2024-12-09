@@ -240,6 +240,8 @@ else
     [ "$MINIMAL_BUILD" = "y" ] && export cfg=lite || export cfg=server
 fi
 
+echo "CONFIG_CUSTOM: $CONFIG_CUSTOM"
+
 # config-devices
 if [ "$platform" = "x86_64" ]; then
     curl -s https://$mirror/openwrt/23-config-musl-x86$([ "$CONFIG_CUSTOM" = "y" ] && echo "-dev") > .config
