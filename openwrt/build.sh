@@ -32,7 +32,7 @@ export isCN=`echo $ip_info | grep -Po 'country_code\":"\K[^"]+'`;
 if [ "$(whoami)" = "runner" ] && [ -n "$GITHUB_REPO" ]; then
     export mirror=raw.githubusercontent.com/$GITHUB_REPO/build
 else
-    export mirror=raw.githubusercontent.com/pmkol/test/build
+    export mirror=raw.githubusercontent.com/pmkol/openwrt-lite/main
 fi
 
 # apply for sbwml/builder
