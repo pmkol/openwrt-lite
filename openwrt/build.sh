@@ -177,7 +177,8 @@ rm -rf openwrt master && mkdir master
 
 # openwrt - releases
 [ "$(whoami)" = "runner" ] && group "source code"
-git clone --depth=1 https://$github/openwrt/openwrt -b $branch
+#git clone --depth=1 https://$github/openwrt/openwrt -b $branch
+git clone https://$github/pmkol/openwrt-source openwrt -b v23.05.5 --depth=1
 
 # openwrt master
 git clone https://$github/openwrt/openwrt master/openwrt --depth=1
@@ -188,8 +189,10 @@ git clone https://$github/openwrt/routing master/routing --depth=1
 # openwrt-23.05
 [ "$1" = "rc2" ] && git clone https://$github/openwrt/openwrt -b openwrt-23.05 master/openwrt-23.05 --depth=1
 
-# immortalwrt master
-git clone https://$github/immortalwrt/packages master/immortalwrt_packages --depth=1
+# openwrt feeds
+git clone https://$github/pmkol/openwrt-feeds master/base-23.05 -b base-23.05 --depth=1
+git clone https://$github/pmkol/openwrt-feeds master/extd-23.05 -b extd-23.05 --depth=1
+git clone https://$github/pmkol/openwrt-feeds master/lite-23.05 -b lite-23.05 --depth=1
 [ "$(whoami)" = "runner" ] && endgroup
 
 if [ -d openwrt ]; then
