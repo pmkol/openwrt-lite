@@ -221,18 +221,13 @@ bash 05-fix-source.sh
 bash 06-custom.sh
 [ "$(whoami)" = "runner" ] && endgroup
 
-# openwrt-23.05 gcc14
-[ "$(whoami)" = "runner" ] && group "patching toolchain"
+# toolchain
 if [ "$USE_GCC14" = "y" ]; then
     rm -rf toolchain/binutils
     cp -a ../master/openwrt/toolchain/binutils toolchain/binutils
     rm -rf toolchain/gcc
     cp -a ../master/openwrt/toolchain/gcc toolchain/gcc
-    curl -s https://$mirror/openwrt/generic/config-gcc14 >> .config
-else
-    curl -s https://$mirror/openwrt/generic/config-gcc11 >> .config
 fi
-[ "$(whoami)" = "runner" ] && endgroup
 
 rm -f 0*-*.sh
 rm -rf ../master
@@ -304,6 +299,11 @@ if [ "$ENABLE_LOCAL_KMOD" = "y" ]; then
     echo -e "\n# local kmod" >> .config
     echo "CONFIG_TARGET_ROOTFS_LOCAL_PACKAGES=y" >> .config
 fi
+
+# gcc14
+[ "$(whoami)" = "runner" ] && group "patching toolchain"
+[ "$USE_GCC14" = "y" ] && curl -s https://$mirror/openwrt/generic/config-gcc14 >> .config || curl -s https://$mirror/openwrt/generic/config-gcc11 >> .config
+[ "$(whoami)" = "runner" ] && endgroup
 
 # upx
 [ "$MINIMAL_BUILD" = "y" ] && [ "$CONFIG_CUSTOM" != "y" ] && curl -s https://$mirror/openwrt/generic/upx_list.txt > upx_list.txt
