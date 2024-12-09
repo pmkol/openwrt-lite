@@ -67,8 +67,8 @@ mkdir -p package/kernel/ubootenv-nvram/patches
 curl -s https://$mirror/openwrt/patch/packages-patches/ubootenv-nvram/010-make-ubootenv_remove-return-void-for-linux-6.11.patch > package/kernel/ubootenv-nvram/patches/010-make-ubootenv_remove-return-void-for-linux-6.11.patch
 
 # xr_usb_serial_common
-curl -s https://$mirror/openwrt/patch/packages-patches/xr_usb_serial_common/0001-xr_usb-kernel-6.1-compile-fix.patch > libs/xr_usb_serial_common/patches/0001-xr_usb-kernel-6.1-compile-fix.patch
-curl -s https://$mirror/openwrt/patch/packages-patches/xr_usb_serial_common/900-fix-linux-6.6.patch > libs/xr_usb_serial_common/patches/900-fix-linux-6.6.patch
+curl -s https://$mirror/openwrt/patch/packages-patches/xr_usb_serial_common/0001-xr_usb-kernel-6.1-compile-fix.patch > feeds/packages/libs/xr_usb_serial_common/patches/0001-xr_usb-kernel-6.1-compile-fix.patch
+curl -s https://$mirror/openwrt/patch/packages-patches/xr_usb_serial_common/900-fix-linux-6.6.patch > feeds/packages/libs/xr_usb_serial_common/patches/900-fix-linux-6.6.patch
 
 # coova-chilli
 curl -s https://$mirror/openwrt/patch/packages-patches/coova-chilli/011-kernel517.patch > feeds/packages/net/coova-chilli/patches/011-kernel517.patch
