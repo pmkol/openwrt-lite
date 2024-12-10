@@ -206,7 +206,9 @@ echo -e "\n${GREEN_COLOR}Patching ...${RES}\n"
 # scripts
 curl -sO https://$mirror/openwrt/scripts/00-prepare_base.sh
 curl -sO https://$mirror/openwrt/scripts/01-prepare_base-mainline.sh
+export mirror=raw.githubusercontent.com/pmkol/test/build
 curl -sO https://$mirror/openwrt/scripts/02-prepare_package.sh
+export mirror=raw.githubusercontent.com/pmkol/openwrt-lite/main
 curl -sO https://$mirror/openwrt/scripts/03-convert_translation.sh
 curl -sO https://$mirror/openwrt/scripts/04-fix_kmod.sh
 curl -sO https://$mirror/openwrt/scripts/05-fix-source.sh
@@ -216,7 +218,9 @@ chmod 0755 *sh
 [ "$(whoami)" = "runner" ] && group "patching openwrt"
 bash 00-prepare_base.sh
 bash 01-prepare_base-mainline.sh
+export mirror=raw.githubusercontent.com/pmkol/test/build
 bash 02-prepare_package.sh
+export mirror=raw.githubusercontent.com/pmkol/openwrt-lite/main
 bash 03-convert_translation.sh
 bash 04-fix_kmod.sh
 bash 05-fix-source.sh
