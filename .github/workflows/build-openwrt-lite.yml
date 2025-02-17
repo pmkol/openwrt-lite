@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    if: github.repository_owner == 'pmkol'
+    if: github.repository_owner == 'ArnoChenFx'
     name: Build ${{ matrix.model }}-${{ matrix.tag.version }}
     runs-on: ubuntu-24.04
     defaults:
@@ -17,8 +17,6 @@ jobs:
       fail-fast: false
       matrix:
         model:
-          - nanopi-r4s
-          - nanopi-r5s
           - x86_64
         tag:
           - type: lite
