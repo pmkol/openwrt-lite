@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
-# golang - 1.23
+# golang - 1.24
 rm -rf feeds/packages/lang/golang
-pkg_golang=$(curl -s https://github.com/pmkol/openwrt-gh-action-sdk/commit/2a81ad56a760e8629ad38fb820fd931f5323d54f.patch | awk '/^\+.*packages_lang_golang/ {sub(/^\+/, ""); print}' | sed -n 's/.*git clone https:\/\/github.com\/\(.*\) feeds\/packages\/lang\/golang/\1/p')
+pkg_golang=$(curl -s https://github.com/pmkol/openwrt-gh-action-sdk/commit/a67931ef2b14e7c4cf632f277a2263d9c61f980f.patch | awk '/^\+.*packages_lang_golang/ {sub(/^\+/, ""); print}' | sed -n 's/.*git clone https:\/\/github.com\/\(.*\) feeds\/packages\/lang\/golang/\1/p')
 git clone https://$github/$pkg_golang --depth 1 feeds/packages/lang/golang
 [ "$DEV_BUILD" = "y" ] && sed -i 's/GO_AMD64:=v1/GO_AMD64:=v2/g' feeds/packages/lang/golang/golang-values.mk
 
@@ -35,7 +35,7 @@ sed -i '/ADDON+=USE_QUIC_OPENSSL_COMPAT=1/d' feeds/packages/net/haproxy/Makefile
 
 # mihomo - prebuilt
 if curl -s "https://$mirror/openwrt/23-config-common-$cfg_ver" | grep -q "^CONFIG_PACKAGE_luci-app-nikki=y" && [ "$NO_APPS" != "y" ]; then
-    mkdir -p files/etc/nikki/run/ui
+    mkdir -p files/etc/nikki/run
     if [ "$MINIMAL_BUILD" = "y" ]; then
         curl -Lso files/etc/nikki/run/GeoSite.dat https://$github/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
         curl -Lso files/etc/nikki/run/GeoIP.dat https://$github/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
@@ -45,7 +45,7 @@ if curl -s "https://$mirror/openwrt/23-config-common-$cfg_ver" | grep -q "^CONFI
     curl -Lso dist.zip https://$github/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip
     unzip dist.zip
     rm -f dist.zip
-    mv dist files/etc/nikki/run/ui/zashboard
+    mv dist files/etc/nikki/run/ui
 fi
 
 # net-snmp & collectd & rrdtool1 - bump version

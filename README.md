@@ -5,7 +5,7 @@
 
 仅需安装、配置一次，后续升级无需重新刷写、配置固件
 
-欢迎加入交流群：[OpenWrt-mihomo](https://t.me/+xqUr1lp9FD0xZDM1)
+欢迎加入交流群：[Infinity Nikki](https://t.me/+xqUr1lp9FD0xZDM1)
 
 #### 固件下载：
 https://github.com/pmkol/openwrt-lite/releases

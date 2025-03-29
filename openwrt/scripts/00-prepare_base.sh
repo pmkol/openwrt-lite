@@ -216,6 +216,10 @@ mv ../master/base-23.05/ngtcp2 package/libs/ngtcp2
 rm -rf feeds/packages/net/curl
 mv ../master/base-23.05/curl feeds/packages/net/curl
 
+# libpcap
+rm -rf package/libs/libpcap
+mv ../master/base-23.05/libpcap package/libs/libpcap
+
 # docker
 [ "$DEV_BUILD" = "y" ] && docker_branch=main || docker_branch=openwrt-23.05
 rm -rf feeds/{luci/applications/luci-app-dockerman,packages/utils/docker-compose}
