@@ -161,7 +161,7 @@ Toolchain Description: Clang19(LLVM-LTO) GCC14(MOLD+LTO)
 
 #### 二、配置插件
 
-- 修改 `openwrt/23-config-common-custom` 配置，注释或删除掉不需要的插件
+- 修改 `openwrt/23-config-common-custom` 配置，注释或删除掉不需要的插件，该配置会自动覆盖lite与server配置中的luci插件
 
 - 按照 .config 格式添加需要的插件，例如 `CONFIG_PACKAGE_luci-app-mihomo=y`
 
