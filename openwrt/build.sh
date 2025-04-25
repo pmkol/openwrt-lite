@@ -25,7 +25,7 @@ endgroup() {
 ###############################
 
 # openwrt repo
-OPENWRT_REPO=pmkol/openwrt-lite
+OPENWRT_REPO=CESMA350/openwrt-lite
 
 # github proxy
 [ "$CN_PROXY" = "y" ] && github_proxy="git.apad.pro/https://" || github_proxy=""
