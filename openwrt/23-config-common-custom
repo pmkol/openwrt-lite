@@ -1,142 +1,32 @@
+# Target Images
+CONFIG_GRUB_TIMEOUT="3"
+CONFIG_GRUB_TITLE="OpenWrt_lite"
+CONFIG_TARGET_KERNEL_PARTSIZE=40
+CONFIG_TARGET_ROOTFS_PARTSIZE=600
+
 ### Apps
-# CONFIG_PACKAGE_luci-app-adguardhome is not set
-# CONFIG_PACKAGE_luci-app-airconnect is not set
-# CONFIG_PACKAGE_luci-app-airplay2 is not set
-CONFIG_PACKAGE_luci-app-aria2=y
-# CONFIG_PACKAGE_luci-app-cifs-mount is not set
-# CONFIG_PACKAGE_luci-app-commands is not set
-CONFIG_PACKAGE_luci-app-cpufreq=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_luci-app-argon-config=y
+CONFIG_PACKAGE_luci-app-arpbind=y
 CONFIG_PACKAGE_luci-app-diskman=y
-# CONFIG_PACKAGE_luci-app-dufs is not set
-# CONFIG_PACKAGE_luci-app-einat is not set
-# CONFIG_PACKAGE_luci-app-eqos is not set
-CONFIG_PACKAGE_luci-app-eqosplus=y
-# CONFIG_PACKAGE_luci-app-filebrowser-go is not set
-# CONFIG_PACKAGE_luci-app-filemanager is not set
-CONFIG_PACKAGE_luci-app-frpc=y
-CONFIG_PACKAGE_luci-app-hd-idle=y
-# CONFIG_PACKAGE_luci-app-gost is not set
-# CONFIG_PACKAGE_luci-app-gowebdav is not set
-# CONFIG_PACKAGE_luci-app-ksmbd is not set
-# CONFIG_PACKAGE_luci-app-mentohust is not set
 CONFIG_PACKAGE_luci-app-mosdns=y
-# CONFIG_PACKAGE_luci-app-msd_lite is not set
-# CONFIG_PACKAGE_luci-app-natmap is not set
 CONFIG_PACKAGE_luci-app-netdata=y
-CONFIG_PACKAGE_luci-app-netspeedtest=y
-# CONFIG_PACKAGE_luci-app-nfs is not set
-CONFIG_PACKAGE_luci-app-nlbwmon=y
-# CONFIG_PACKAGE_luci-app-oaf is not set
-# CONFIG_PACKAGE_luci-app-qbittorrent is not set
-# CONFIG_PACKAGE_luci-app-qosmate is not set
 CONFIG_PACKAGE_luci-app-ramfree=y
-CONFIG_PACKAGE_luci-app-samba4=y
-# CONFIG_PACKAGE_luci-app-smartdns is not set
-CONFIG_PACKAGE_luci-app-socat=y
-# CONFIG_PACKAGE_luci-app-sqm is not set
-# CONFIG_PACKAGE_luci-app-statistics is not set
-CONFIG_PACKAGE_luci-app-tailscale=y
-# CONFIG_PACKAGE_luci-app-timedreboot is not set
+CONFIG_PACKAGE_luci-app-smartdns=y
 CONFIG_PACKAGE_luci-app-ttyd=y
-# CONFIG_PACKAGE_luci-app-udpxy is not set
-# CONFIG_PACKAGE_luci-app-uhttpd is not set
-# CONFIG_PACKAGE_luci-app-unblockneteasemusic is not set
 CONFIG_PACKAGE_luci-app-upnp=y
-# CONFIG_PACKAGE_luci-app-usb-printer is not set
-# CONFIG_PACKAGE_luci-app-vlmcsd is not set
-# CONFIG_PACKAGE_luci-app-vsftpd is not set
-CONFIG_PACKAGE_luci-app-watchcat=y
-CONFIG_PACKAGE_luci-app-wolplus=y
-# CONFIG_PACKAGE_luci-app-zerotier is not set
+CONFIG_PACKAGE_luci-app-vlmcsd=y
 
-### DDNS
-# CONFIG_PACKAGE_luci-app-ddns is not set
-# CONFIG_PACKAGE_luci-app-ddns-go is not set
-
-### DDNS Scripts
-# CONFIG_PACKAGE_ddns-scripts is not set
-# CONFIG_PACKAGE_ddns-scripts-aliyun is not set
-# CONFIG_PACKAGE_ddns-scripts-cloudflare is not set
-# CONFIG_PACKAGE_ddns-scripts-dnspod is not set
-# CONFIG_PACKAGE_ddns-scripts-freedns is not set
-# CONFIG_PACKAGE_ddns-scripts-godaddy is not set
-# CONFIG_PACKAGE_ddns-scripts-services is not set
-
-### Dae
-# CONFIG_PACKAGE_luci-app-dae is not set
-# CONFIG_PACKAGE_luci-app-daed is not set
-
-### Homeproxy
-# CONFIG_PACKAGE_luci-app-homeproxy is not set
-
-### L2TP
-# CONFIG_PACKAGE_kmod-l2tp is not set
-# CONFIG_PACKAGE_kmod-pppol2tp is not set
-# CONFIG_PACKAGE_ppp-mod-pppol2tp is not set
-# CONFIG_PACKAGE_xl2tpd is not set
-
-### Mihomo
-# CONFIG_PACKAGE_luci-app-nikki is not set
-# CONFIG_PACKAGE_luci-app-openclash is not set
-
-### Passwall
-CONFIG_PACKAGE_luci-app-passwall=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_SingBox=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Geodata=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Hysteria is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_NaiveProxy is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Client is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Server is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Server is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_tuic_client is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin is not set
-# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs is not set
-# CONFIG_PACKAGE_simple-obfs-client is not set
-
-### SSR Plus
-# CONFIG_PACKAGE_luci-app-ssr-plus is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_IPT2Socks is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2 is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_Obfs is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Xray_Plugin is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Hysteria is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan is not set
-
-### Share Network
-# CONFIG_PACKAGE_usbmuxd is not set
-# CONFIG_PACKAGE_kmod-usb-net-rndis is not set
-# CONFIG_PACKAGE_kmod-usb-net-ipheth is not set
-
-### Wireguard
-# CONFIG_PACKAGE_luci-proto-wireguard is not set
-
-### Shadow Utilities
-# CONFIG_PACKAGE_shadow-chgpasswd is not set
-# CONFIG_PACKAGE_shadow-chpasswd is not set
-# CONFIG_PACKAGE_shadow-gpasswd is not set
-# CONFIG_PACKAGE_shadow-groupadd is not set
-# CONFIG_PACKAGE_shadow-groupdel is not set
-# CONFIG_PACKAGE_shadow-groupmod is not set
-# CONFIG_PACKAGE_shadow-groups is not set
-# CONFIG_PACKAGE_shadow-login is not set
-# CONFIG_PACKAGE_shadow-nologin is not set
-# CONFIG_PACKAGE_shadow-passwd is not set
-# CONFIG_PACKAGE_shadow-su is not set
-# CONFIG_PACKAGE_shadow-useradd is not set
-# CONFIG_PACKAGE_shadow-userdel is not set
-# CONFIG_PACKAGE_shadow-usermod is not set
-# CONFIG_PACKAGE_shadow-utils is not set
+# Utilities
+#
+# Editors
+CONFIG_PACKAGE_nano=y
+CONFIG_PACKAGE_vim=y
+#
+CONFIG_PACKAGE_open-vm-tools=y
+CONFIG_PACKAGE_open-vm-tools-fuse=y
 
 ### Add more luci-apps below
 ### Some packages may fail to build with GCC 14
 ### Please add new packages or patches in openwrt/scripts/06-custom.sh
-# CONFIG_PACKAGE_luci-app-alist is not set
+# End
