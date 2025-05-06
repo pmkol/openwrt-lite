@@ -155,6 +155,9 @@ git clone https://$github/openwrt/luci master/luci --depth=1
 git clone https://$github/openwrt/routing master/routing --depth=1
 [ "$DEV_BUILD" = "y" ] && git clone https://$github/openwrt/openwrt -b openwrt-23.05 master/openwrt-23.05 --depth=1
 
+# openwrt toolchain
+git clone https://$github/pmkol/openwrt-llvm-toolchain master/toolchain -b gcc14 --depth=1
+
 # openwrt feeds
 git clone https://$github/pmkol/openwrt-feeds master/base-23.05 -b base-23.05 --depth=1
 git clone https://$github/pmkol/openwrt-feeds master/extd-23.05 -b extd-23.05 --depth=1
@@ -236,10 +239,9 @@ bash 06-custom.sh
 # toolchain
 [ "$(whoami)" = "runner" ] && group "patching toolchain"
 if [ "$USE_GCC14" = "y" ]; then
-    rm -rf toolchain/binutils
-    cp -a ../master/openwrt/toolchain/binutils toolchain/binutils
-    rm -rf toolchain/gcc
-    cp -a ../master/openwrt/toolchain/gcc toolchain/gcc
+    rm -rf toolchain/{binutils,gcc}
+    cp -a ../master/toolchain/binutils toolchain/binutils
+    cp -a ../master/toolchain/gcc toolchain/gcc
     curl -s https://$mirror/openwrt/generic/config-gcc14 > .config
 else
     curl -s https://$mirror/openwrt/generic/config-gcc11 > .config
