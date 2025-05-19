@@ -301,6 +301,6 @@ export CN_PROXY=y
 
 #### 社区成员
 - [@Joseph Mory](https://github.com/morytyann)
-- [@ApoisL](https://github.com/vernlau)
+- [@Apois](https://github.com/apoiston)
 
 `"Stay hungry, Stay foolish..."`
