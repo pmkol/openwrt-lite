@@ -28,7 +28,7 @@ endgroup() {
 OPENWRT_REPO=pmkol/openwrt-lite
 
 # github proxy
-[ "$CN_PROXY" = "y" ] && github_proxy="git.apad.pro/https://" || github_proxy=""
+[ "$CN_PROXY" = "y" ] && [ -z "$GITHUB_REPO" ] && github_proxy="git.apad.pro/https://" || github_proxy=""
 
 # github mirror
 export github="$github_proxy"github.com
@@ -133,7 +133,7 @@ echo -e "${GREEN_COLOR}GCC VERSION: $gcc_version${RES}"
 [ "$ENABLE_LRNG" = "y" ] && echo -e "${GREEN_COLOR}ENABLE_LRNG: true${RES}" || echo -e "${GREEN_COLOR}ENABLE_LRNG:${RES} ${RED_COLOR}false${RES}"
 [ "$ENABLE_LOCAL_KMOD" = "y" ] && echo -e "${GREEN_COLOR}ENABLE_LOCAL_KMOD: true${RES}" || echo -e "${GREEN_COLOR}ENABLE_LOCAL_KMOD:${RES} ${YELLOW_COLOR}false${RES}"
 [ "$BUILD_FAST" = "y" ] && echo -e "${GREEN_COLOR}BUILD_FAST: true${RES}" || echo -e "${GREEN_COLOR}BUILD_FAST:${RES} ${YELLOW_COLOR}false${RES}"
-[ "$CN_PROXY" = "y" ] && echo -e "${GREEN_COLOR}CN_PROXY: true${RES}" || echo -e "${GREEN_COLOR}CN_PROXY:${RES} ${YELLOW_COLOR}false${RES}"
+[ "$CN_PROXY" = "y" ] && [ -z "$GITHUB_REPO" ] && echo -e "${GREEN_COLOR}CN_PROXY: true${RES}" || echo -e "${GREEN_COLOR}CN_PROXY:${RES} ${YELLOW_COLOR}false${RES}"
 [ "$MINIMAL_BUILD" = "y" ] && echo -e "${GREEN_COLOR}MINIMAL_BUILD: true${RES}" || echo -e "${GREEN_COLOR}MINIMAL_BUILD:${RES} ${YELLOW_COLOR}false${RES}"
 if [ "$KERNEL_CLANG_LTO" = "y" ]; then
     [ "$CLANG_LTO_THIN" = "y" ] && echo -e "${GREEN_COLOR}KERNEL_CLANG_LTO(THIN): true${RES}\r\n" || echo -e "${GREEN_COLOR}KERNEL_CLANG_LTO: true${RES}\r\n"
