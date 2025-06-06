@@ -61,6 +61,7 @@ CONFIG_DOCKER_STO_EXT4=y
 CONFIG_PACKAGE_luci-app-dockerman=y
 CONFIG_PACKAGE_luci-lib-docker=y
 CONFIG_PACKAGE_docker-compose=y
+# CONFIG_PACKAGE_cgroupfs-mount is not set
 
 ### Luci
 CONFIG_PACKAGE_ariang=y

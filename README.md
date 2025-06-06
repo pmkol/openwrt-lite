@@ -282,6 +282,15 @@ Server版默认会构建 Docker 服务，使用该参数会跳过安装 Docker �
 export NO_DOCKER=y
 ```
 
+#### 启用 OPKG 代理
+仅建议在无法正常访问软件源或下载速度过慢时使用
+
+只需在构建固件前执行以下命令即可启用 OPKG 代理
+
+```
+export OPKG_PROXY=y
+```
+
 #### 启用 GitHub 代理（仅限本地编译）
 仅建议在无法正常访问 GitHub 或下载速度过慢时使用
 
@@ -301,6 +310,6 @@ export CN_PROXY=y
 
 #### 社区成员
 - [@Joseph Mory](https://github.com/morytyann)
-- [@ApoisL](https://github.com/vernlau)
+- [@Apois](https://github.com/apoiston)
 
 `"Stay hungry, Stay foolish..."`

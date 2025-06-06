@@ -1,0 +1,27 @@
+From 0708d238581704cdb707a093b22da6f4eeaddaeb Mon Sep 17 00:00:00 2001
+From: Joseph Mory <morytyann@outlook.com>
+Date: Fri, 30 May 2025 20:32:47 +0800
+Subject: [PATCH] luci-base: fix table option does not show in non-Bootstrap
+ themes when it has depends
+
+Signed-off-by: Joseph Mory <morytyann@outlook.com>
+---
+ modules/luci-base/htdocs/luci-static/resources/form.js | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/modules/luci-base/htdocs/luci-static/resources/form.js b/modules/luci-base/htdocs/luci-static/resources/form.js
+index c9af17f1b37e..e1031b1be835 100644
+--- a/modules/luci-base/htdocs/luci-static/resources/form.js
++++ b/modules/luci-base/htdocs/luci-static/resources/form.js
+@@ -3779,7 +3779,10 @@ const CBIValue = CBIAbstractValue.extend(/** @lends LuCI.form.Value.prototype */
+ 				E('div', { 'class': 'cbi-value-description' }, this.description.trim()));
+ 
+ 		if (depend_list && depend_list.length)
+-			optionEl.classList.add('hidden');
++			if (in_table)
++				optionEl.firstChild.classList.add('hidden');
++			else
++				optionEl.classList.add('hidden');
+ 
+ 		optionEl.addEventListener('widget-change',
+ 			L.bind(this.map.checkDepends, this.map));

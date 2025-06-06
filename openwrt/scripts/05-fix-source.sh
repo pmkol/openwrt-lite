@@ -67,3 +67,7 @@ fi
 
 # kselftests-bpf
 curl -s https://$mirror/openwrt/patch/packages-patches/kselftests-bpf/Makefile > package/devel/kselftests-bpf/Makefile
+
+# sms-tools
+mkdir -p feeds/packages/utils/sms-tool/patches
+curl -s https://$mirror/openwrt/patch/packages-patches/sms-tools/900-fix-incompatible-pointer-type-error-for-signal-function.patch > feeds/packages/utils/sms-tool/patches/900-fix-incompatible-pointer-type-error-for-signal-function.patch

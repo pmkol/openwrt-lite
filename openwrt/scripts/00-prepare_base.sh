@@ -146,8 +146,11 @@ mv ../master/base-23.05/iproute2 package/network/utils/iproute2
 rm -rf package/libs/libunwind
 mv ../master/base-23.05/libunwind package/libs/libunwind
 
+# openssl - bump version
+rm -f package/libs/openssl/Makefile
+curl -s https://$mirror/openwrt/patch/openssl/Makefile > package/libs/openssl/Makefile
+
 # openssl - quictls
-[ "$DEV_BUILD" = "y" ] && rm -rf package/libs/openssl && cp -a ../master/openwrt-23.05/package/libs/openssl package/libs/openssl
 pushd package/libs/openssl/patches
     curl -sO https://$mirror/openwrt/patch/openssl/quic/0001-QUIC-Add-support-for-BoringSSL-QUIC-APIs.patch
     curl -sO https://$mirror/openwrt/patch/openssl/quic/0002-QUIC-New-method-to-get-QUIC-secret-length.patch
@@ -195,6 +198,12 @@ pushd package/libs/openssl/patches
     curl -sO https://$mirror/openwrt/patch/openssl/quic/0044-QUIC-Update-metadata-version.patch
 popd
 
+# openssl benchmarks
+pushd package/libs/openssl/patches
+    curl -sO https://$mirror/openwrt/patch/openssl/901-Revert-speed-Pass-IV-to-EVP_CipherInit_ex-for-evp-ru.patch
+    curl -sO https://$mirror/openwrt/patch/openssl/902-Revert-apps-speed.c-Fix-the-benchmarking-for-AEAD-ci.patch
+popd
+
 # openssl urandom
 sed -i "/-openwrt/iOPENSSL_OPTIONS += enable-ktls '-DDEVRANDOM=\"\\\\\"/dev/urandom\\\\\"\"\'\n" package/libs/openssl/Makefile
 
@@ -230,6 +239,7 @@ if [ "$MINIMAL_BUILD" != "y" ]; then
     git clone https://$github/pmkol/packages_utils_dockerd feeds/packages/utils/dockerd -b $docker_branch --depth 1
     git clone https://$github/pmkol/packages_utils_containerd feeds/packages/utils/containerd -b $docker_branch --depth 1
     git clone https://$github/pmkol/packages_utils_runc feeds/packages/utils/runc -b $docker_branch --depth 1
+    sed -i '/cgroupfs-mount/d' feeds/packages/utils/dockerd/Config.in
     sed -i '/sysctl.d/d' feeds/packages/utils/dockerd/Makefile
 fi
 
@@ -272,6 +282,8 @@ pushd feeds/luci
     [ "$MINIMAL_BUILD" != "y" ] && curl -s https://$mirror/openwrt/patch/luci/0006-luci-mod-system-mounts-add-docker-directory-mount-po.patch | patch -p1
     curl -s https://$mirror/openwrt/patch/luci/0007-luci-base-correct-textarea-wrap.patch | patch -p1
     curl -s https://$mirror/openwrt/patch/luci/0008-luci-base-cbifileupload-support-file-browser-mode.patch | patch -p1
+    curl -s https://$mirror/openwrt/patch/luci/0009-luci-base-fix-table-option-does-not-show-with-depends.patch | patch -p1
+    curl -s https://$github/openwrt/luci/commit/089903105f4f01135008b8a22557ae998b9303e9.patch | patch -p1
 popd
 
 # Luci diagnostics.js

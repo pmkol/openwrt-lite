@@ -1,0 +1,11 @@
+--- a/sms_main.c
++++ b/sms_main.c
+@@ -111,7 +111,7 @@ static void resetserial()
+ 	close(port);
+ }
+ 
+-static void timeout()
++static void timeout(int signo)
+ {
+ 	fprintf(stderr,"No response from modem.\n");
+ 	exit(2);
