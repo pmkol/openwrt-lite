@@ -49,6 +49,9 @@ if curl -s "https://$mirror/openwrt/23-config-common-$cfg_ver" | grep -q "^CONFI
     mv dist files/etc/nikki/run/ui
 fi
 
+# natmap - disable syslogs
+sed -i 's/log_stdout:bool:1/log_stdout:bool:0/g;s/log_stderr:bool:1/log_stderr:bool:0/g' feeds/packages/net/natmap/files/natmap.init
+
 # net-snmp & collectd & rrdtool1 - bump version
 rm -rf feeds/packages/net/net-snmp
 mv ../master/extd-23.05/net-snmp feeds/packages/net/net-snmp
@@ -74,10 +77,6 @@ rm -rf feeds/packages/{net/samba4,libs/liburing} feeds/luci/applications/luci-ap
 # rk3568 bind cpus
 [ "$platform" = "rk3568" ] && sed -i 's#/usr/sbin/smbd -F#/usr/bin/taskset -c 1,0 /usr/sbin/smbd -F#' ../master/extd-23.05/samba4/files/samba.init
 
-# sqm - translation
-mkdir -p feeds/packages/net/sqm-scripts/patches
-curl -s https://$mirror/openwrt/patch/sqm/001-help-translation.patch > feeds/packages/net/sqm-scripts/patches/001-help-translation.patch
-
 # tailscale - prebuilt
 if curl -s "https://$mirror/openwrt/23-config-common-$cfg_ver" | grep -q "^CONFIG_PACKAGE_luci-app-tailscale=y" && [ "$NO_APPS" != "y" ]; then
     mkdir -p files/etc/hotplug.d/iface
@@ -100,7 +99,7 @@ sed -i 's/procd_set_param stderr 1/procd_set_param stderr 0/g' feeds/packages/ut
 true > feeds/packages/utils/watchcat/files/watchcat.config
 
 # clean up old feeds
-rm -rf feeds/luci/applications/{luci-app-aria2,luci-app-frpc,luci-app-frps,luci-app-hd-idle,luci-app-ksmbd,luci-app-natmap,luci-app-nlbwmon,luci-app-smartdns,luci-app-upnp}
+rm -rf feeds/luci/applications/{luci-app-aria2,luci-app-frpc,luci-app-frps,luci-app-hd-idle,luci-app-ksmbd,luci-app-natmap,luci-app-nlbwmon,luci-app-smartdns,luci-app-sqm,luci-app-upnp}
 rm -rf feeds/packages/admin/netdata
 rm -rf feeds/packages/net/{adguardhome,aria2,ddns-scripts,frp,iperf3,ksmbd-tools,microsocks,miniupnpd,nlbwmon,xray-core,v2ray-core,v2ray-geodata,sing-box,shadowsocks-libev,smartdns,tailscale,zerotier}
 rm -rf feeds/packages/utils/{lsof,screen,unzip,vim,zstd}
