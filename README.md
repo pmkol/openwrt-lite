@@ -304,6 +304,12 @@ export NO_DOCKER=y
 export OPKG_PROXY=y
 ```
 
+如需使用中国大陆的CDN线路请执行以下命令
+
+```
+export OPKG_PROXY=cn
+```
+
 #### 启用 GitHub 代理（仅限本地编译）
 仅建议在无法正常访问 GitHub 或下载速度过慢时使用
 
@@ -324,3 +330,6 @@ export CN_PROXY=y
 #### 社区成员
 - [@Joseph Mory](https://github.com/morytyann)
 - [@Apois](https://github.com/apoiston)
+
+[<img src="https://edgeone.ai/media/34fe3a45-492d-4ea4-ae5d-ea1087ca7b4b.png" height="22" alt="Tencent EdgeOne">](https://edgeone.ai/?from=github)
+- CDN acceleration and security protection for this project are sponsored by [Tencent EdgeOne](https://edgeone.ai/?from=github)
