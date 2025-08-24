@@ -69,7 +69,7 @@ from the server SSL.
       * This will ensure we have received the NewSessionTicket in TLSv1.3 where
 --- a/test/sslapitest.c
 +++ b/test/sslapitest.c
-@@ -10831,6 +10831,7 @@ static int test_quic_api_version(int cln
+@@ -10832,6 +10832,7 @@ static int test_quic_api_version(int cln
      static const char *client_str = "CLIENT";
      const uint8_t *peer_str;
      size_t peer_str_len;
@@ -77,7 +77,7 @@ from the server SSL.
  
      TEST_info("original clnt=0x%X, srvr=0x%X\n", clnt, srvr);
  
-@@ -10853,8 +10854,10 @@ static int test_quic_api_version(int cln
+@@ -10854,8 +10855,10 @@ static int test_quic_api_version(int cln
              || !TEST_true(SSL_set_app_data(clientssl, serverssl))
              || !TEST_true(test_quic_api_set_versions(clientssl, clnt))
              || !TEST_true(test_quic_api_set_versions(serverssl, srvr))
@@ -90,7 +90,7 @@ from the server SSL.
              || !TEST_true(SSL_version(serverssl) == TLS1_3_VERSION)
              || !TEST_true(SSL_version(clientssl) == TLS1_3_VERSION)
              || !(TEST_int_eq(SSL_quic_read_level(clientssl), ssl_encryption_application))
-@@ -10976,6 +10979,7 @@ static int quic_setupearly_data_test(SSL
+@@ -10977,6 +10980,7 @@ static int quic_setupearly_data_test(SSL
  {
      static const char *server_str = "SERVER";
      static const char *client_str = "CLIENT";
@@ -98,7 +98,7 @@ from the server SSL.
  
      if (*sctx == NULL
              && (!TEST_true(create_ssl_ctx_pair(libctx, TLS_server_method(),
-@@ -11053,8 +11057,10 @@ static int quic_setupearly_data_test(SSL
+@@ -11054,8 +11058,10 @@ static int quic_setupearly_data_test(SSL
      if (sess == NULL)
          return 1;
  
@@ -111,7 +111,7 @@ from the server SSL.
          return 0;
  
      /* Deal with two NewSessionTickets */
-@@ -11093,12 +11099,15 @@ static int test_quic_early_data(int tst)
+@@ -11094,12 +11100,15 @@ static int test_quic_early_data(int tst)
      SSL *clientssl = NULL, *serverssl = NULL;
      int testresult = 0;
      SSL_SESSION *sess = NULL;

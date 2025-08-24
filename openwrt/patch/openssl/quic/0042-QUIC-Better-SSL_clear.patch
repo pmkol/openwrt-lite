@@ -146,7 +146,7 @@ Don't make the new functions public.
      if (SSL_IS_DTLS(s) && BIO_dgram_is_sctp(SSL_get_wbio(s))) {
 --- a/test/sslapitest.c
 +++ b/test/sslapitest.c
-@@ -10831,7 +10831,6 @@ static int test_quic_api_version(int cln
+@@ -10832,7 +10832,6 @@ static int test_quic_api_version(int cln
      static const char *client_str = "CLIENT";
      const uint8_t *peer_str;
      size_t peer_str_len;
@@ -154,7 +154,7 @@ Don't make the new functions public.
  
      TEST_info("original clnt=0x%X, srvr=0x%X\n", clnt, srvr);
  
-@@ -10854,10 +10853,8 @@ static int test_quic_api_version(int cln
+@@ -10855,10 +10854,8 @@ static int test_quic_api_version(int cln
              || !TEST_true(SSL_set_app_data(clientssl, serverssl))
              || !TEST_true(test_quic_api_set_versions(clientssl, clnt))
              || !TEST_true(test_quic_api_set_versions(serverssl, srvr))
@@ -166,7 +166,7 @@ Don't make the new functions public.
              || !TEST_true(SSL_version(serverssl) == TLS1_3_VERSION)
              || !TEST_true(SSL_version(clientssl) == TLS1_3_VERSION)
              || !(TEST_int_eq(SSL_quic_read_level(clientssl), ssl_encryption_application))
-@@ -10979,7 +10976,6 @@ static int quic_setupearly_data_test(SSL
+@@ -10980,7 +10977,6 @@ static int quic_setupearly_data_test(SSL
  {
      static const char *server_str = "SERVER";
      static const char *client_str = "CLIENT";
@@ -174,7 +174,7 @@ Don't make the new functions public.
  
      if (*sctx == NULL
              && (!TEST_true(create_ssl_ctx_pair(libctx, TLS_server_method(),
-@@ -11057,10 +11053,8 @@ static int quic_setupearly_data_test(SSL
+@@ -11058,10 +11054,8 @@ static int quic_setupearly_data_test(SSL
      if (sess == NULL)
          return 1;
  
@@ -187,7 +187,7 @@ Don't make the new functions public.
          return 0;
  
      /* Deal with two NewSessionTickets */
-@@ -11099,15 +11093,12 @@ static int test_quic_early_data(int tst)
+@@ -11100,15 +11094,12 @@ static int test_quic_early_data(int tst)
      SSL *clientssl = NULL, *serverssl = NULL;
      int testresult = 0;
      SSL_SESSION *sess = NULL;

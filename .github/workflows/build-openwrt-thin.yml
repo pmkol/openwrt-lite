@@ -102,7 +102,7 @@ jobs:
         export GITHUB_REPO=${{ github.repository }}
         export OPENWRT_KEY=${{ secrets.OPENWRT_KEY }}
         export NO_APPS=y
-        tags=$(curl -s "https://api.github.com/repos/pmkol/openwrt-source/branches" | jq -r '.[].name | select(startswith("v"))' | sort -V | tail -n 1)
+        tags=$(git ls-remote --heads https://github.com/pmkol/openwrt-source | awk -F'/' '{print $3}' | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | tail -n 1)
         [ -z "$tags" ] && echo "Failed to retrieve tags. Exiting" && exit 1
         echo "latest_release=$tags-lite" >>$GITHUB_ENV
         bash <(curl -sS https://raw.githubusercontent.com/pmkol/openwrt-lite/main/openwrt/build.sh) ${{ matrix.tag.type }} ${{ matrix.model }}

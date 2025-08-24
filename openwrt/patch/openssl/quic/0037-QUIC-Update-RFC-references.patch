@@ -77,7 +77,7 @@ Subject: [PATCH 37/43] QUIC: Update RFC references
              SSLfatal(s, SSL_AD_ILLEGAL_PARAMETER, SSL_R_INVALID_MAX_EARLY_DATA);
 --- a/ssl/statem/extensions_srvr.c
 +++ b/ssl/statem/extensions_srvr.c
-@@ -1917,7 +1917,7 @@ EXT_RETURN tls_construct_stoc_early_data
+@@ -1929,7 +1929,7 @@ EXT_RETURN tls_construct_stoc_early_data
              return EXT_RETURN_NOT_SENT;
  
  #ifndef OPENSSL_NO_QUIC

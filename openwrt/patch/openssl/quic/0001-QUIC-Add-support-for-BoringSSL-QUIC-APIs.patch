@@ -53,7 +53,7 @@ Based on BoringSSL commit b1b76aee3cb43ce11889403c5334283d951ebd37
 
 --- a/Configure
 +++ b/Configure
-@@ -467,6 +467,7 @@ my @disablables = (
+@@ -468,6 +468,7 @@ my @disablables = (
      "poly1305",
      "posix-io",
      "psk",
@@ -61,7 +61,7 @@ Based on BoringSSL commit b1b76aee3cb43ce11889403c5334283d951ebd37
      "rc2",
      "rc4",
      "rc5",
-@@ -635,6 +636,7 @@ my @disable_cascades = (
+@@ -636,6 +637,7 @@ my @disable_cascades = (
      "legacy"            => [ "md2" ],
  
      "cmp"               => [ "crmf" ],
@@ -84,7 +84,7 @@ Based on BoringSSL commit b1b76aee3cb43ce11889403c5334283d951ebd37
  Don't use hardware RDRAND capabilities.
 --- a/crypto/err/openssl.txt
 +++ b/crypto/err/openssl.txt
-@@ -1251,6 +1251,7 @@ SSL_R_AT_LEAST_TLS_1_2_NEEDED_IN_SUITEB_
+@@ -1253,6 +1253,7 @@ SSL_R_AT_LEAST_TLS_1_2_NEEDED_IN_SUITEB_
  SSL_R_BAD_CHANGE_CIPHER_SPEC:103:bad change cipher spec
  SSL_R_BAD_CIPHER:186:bad cipher
  SSL_R_BAD_DATA:390:bad data
@@ -92,7 +92,7 @@ Based on BoringSSL commit b1b76aee3cb43ce11889403c5334283d951ebd37
  SSL_R_BAD_DATA_RETURNED_BY_CALLBACK:106:bad data returned by callback
  SSL_R_BAD_DECOMPRESSION:107:bad decompression
  SSL_R_BAD_DH_VALUE:102:bad dh value
-@@ -1538,6 +1539,7 @@ SSL_R_VERSION_TOO_LOW:396:version too lo
+@@ -1540,6 +1541,7 @@ SSL_R_VERSION_TOO_LOW:396:version too lo
  SSL_R_WRONG_CERTIFICATE_TYPE:383:wrong certificate type
  SSL_R_WRONG_CIPHER_RETURNED:261:wrong cipher returned
  SSL_R_WRONG_CURVE:378:wrong curve
@@ -1103,7 +1103,7 @@ Based on BoringSSL commit b1b76aee3cb43ce11889403c5334283d951ebd37
 +#endif
 --- a/ssl/statem/extensions_srvr.c
 +++ b/ssl/statem/extensions_srvr.c
-@@ -1237,6 +1237,33 @@ int tls_parse_ctos_post_handshake_auth(S
+@@ -1249,6 +1249,33 @@ int tls_parse_ctos_post_handshake_auth(S
      return 1;
  }
  
@@ -1137,7 +1137,7 @@ Based on BoringSSL commit b1b76aee3cb43ce11889403c5334283d951ebd37
  /*
   * Add the server's renegotiation binding
   */
-@@ -1920,3 +1947,27 @@ EXT_RETURN tls_construct_stoc_psk(SSL *s
+@@ -1932,3 +1959,27 @@ EXT_RETURN tls_construct_stoc_psk(SSL *s
  
      return EXT_RETURN_SENT;
  }
@@ -1554,10 +1554,10 @@ Based on BoringSSL commit b1b76aee3cb43ce11889403c5334283d951ebd37
       * This will ensure we have received the NewSessionTicket in TLSv1.3 where
 --- a/test/sslapitest.c
 +++ b/test/sslapitest.c
-@@ -10764,6 +10764,134 @@ static int test_multi_resume(int idx)
-     SSL_SESSION_free(sess);
+@@ -10765,6 +10765,135 @@ static int test_multi_resume(int idx)
      return testresult;
  }
+ 
 +#ifndef OPENSSL_NO_QUIC
 +static int test_quic_set_encryption_secrets(SSL *ssl, OSSL_ENCRYPTION_LEVEL level,
 +                                            const uint8_t *read_secret,
@@ -1686,13 +1686,14 @@ Based on BoringSSL commit b1b76aee3cb43ce11889403c5334283d951ebd37
 +    return testresult;
 +}
 +#endif /* OPENSSL_NO_QUIC */
- 
++
  static struct next_proto_st {
      int serverlen;
-@@ -11407,6 +11535,9 @@ int setup_tests(void)
-     ADD_ALL_TESTS(test_npn, 5);
+     unsigned char server[40];
+@@ -11482,6 +11611,9 @@ int setup_tests(void)
  #endif
      ADD_ALL_TESTS(test_alpn, 4);
+     ADD_ALL_TESTS(test_no_renegotiation, 2);
 +#ifndef OPENSSL_NO_QUIC
 +    ADD_TEST(test_quic_api);
 +#endif

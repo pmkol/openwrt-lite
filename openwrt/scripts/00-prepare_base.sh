@@ -86,6 +86,13 @@ sed -i 's/noinitrd/noinitrd intel_pstate=disable mitigations=off/g' target/linux
 # default LAN IP
 sed -i "s/192.168.1.1/$LAN/g" package/base-files/files/bin/config_generate
 
+# default LAN port count
+if [ "$LAN_PORTS" = "3" ] || [ "$DEV_BUILD" = "y" ]; then
+    sed -i '/^\s*\*)/{n;/"eth0" "eth1"/s//"eth1 eth2 eth3" "eth0"/;}' target/linux/x86/base-files/etc/board.d/02_network
+elif [ "$LAN_PORTS" = "5" ]; then
+    sed -i '/^\s*\*)/{n;/"eth0" "eth1"/s//"eth1 eth2 eth3 eth4 eth5" "eth0"/;}' target/linux/x86/base-files/etc/board.d/02_network
+fi
+
 # GCC Optimization level -O3
 if [ "$platform" = "x86_64" ]; then
     curl -s https://$mirror/openwrt/patch/target-modify_for_x86_64.patch | patch -p1

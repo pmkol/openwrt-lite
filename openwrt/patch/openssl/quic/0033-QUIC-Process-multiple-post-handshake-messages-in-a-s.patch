@@ -46,7 +46,7 @@ Subject: [PATCH 33/43] QUIC: Process multiple post-handshake messages in a
  
 --- a/test/sslapitest.c
 +++ b/test/sslapitest.c
-@@ -10871,8 +10871,7 @@ static int test_quic_api_version(int cln
+@@ -10872,8 +10872,7 @@ static int test_quic_api_version(int cln
          goto end;
  
      /* Deal with two NewSessionTickets */
@@ -56,7 +56,7 @@ Subject: [PATCH 33/43] QUIC: Process multiple post-handshake messages in a
          goto end;
  
      /* Dummy handshake call should succeed */
-@@ -11059,8 +11058,7 @@ static int quic_setupearly_data_test(SSL
+@@ -11060,8 +11059,7 @@ static int quic_setupearly_data_test(SSL
          return 0;
  
      /* Deal with two NewSessionTickets */

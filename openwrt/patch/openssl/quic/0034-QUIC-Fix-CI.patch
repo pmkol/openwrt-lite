@@ -15,7 +15,7 @@ Fixes an issue with extension defintions and `no-quic`
 
 --- a/Configure
 +++ b/Configure
-@@ -578,6 +578,7 @@ my @disable_cascades = (
+@@ -579,6 +579,7 @@ my @disable_cascades = (
                               "sm3", "sm4", "srp",
                               "srtp", "ssl3-method", "ssl-trace",
                               "ts", "ui-console", "whirlpool",
@@ -23,7 +23,7 @@ Fixes an issue with extension defintions and `no-quic`
                               "fips-securitychecks" ],
      sub { $config{processor} eq "386" }
                          => [ "sse2" ],
-@@ -585,7 +586,7 @@ my @disable_cascades = (
+@@ -586,7 +587,7 @@ my @disable_cascades = (
      "ssl3-method"       => [ "ssl3" ],
      "zlib"              => [ "zlib-dynamic" ],
      "des"               => [ "mdc2" ],
@@ -73,7 +73,7 @@ Fixes an issue with extension defintions and `no-quic`
          /* Must be immediately before pre_shared_key */
 --- a/ssl/statem/extensions_srvr.c
 +++ b/ssl/statem/extensions_srvr.c
-@@ -1918,7 +1918,7 @@ EXT_RETURN tls_construct_stoc_early_data
+@@ -1930,7 +1930,7 @@ EXT_RETURN tls_construct_stoc_early_data
  
  #ifndef OPENSSL_NO_QUIC
          /* QUIC server must always send 0xFFFFFFFF, per draft-ietf-quic-tls-27 S4.5 */

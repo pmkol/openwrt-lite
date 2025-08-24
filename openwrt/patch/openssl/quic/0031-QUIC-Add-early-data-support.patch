@@ -306,7 +306,7 @@ support to QUIC.
      ret = 1;
 --- a/test/sslapitest.c
 +++ b/test/sslapitest.c
-@@ -10965,6 +10965,159 @@ end:
+@@ -10966,6 +10966,159 @@ end:
      serverssl = NULL;
      return testresult;
  }
@@ -466,8 +466,8 @@ support to QUIC.
  #endif /* OPENSSL_NO_QUIC */
  
  static struct next_proto_st {
-@@ -11611,6 +11764,9 @@ int setup_tests(void)
-     ADD_ALL_TESTS(test_alpn, 4);
+@@ -11687,6 +11840,9 @@ int setup_tests(void)
+     ADD_ALL_TESTS(test_no_renegotiation, 2);
  #ifndef OPENSSL_NO_QUIC
      ADD_ALL_TESTS(test_quic_api, 9);
 +# ifndef OSSL_NO_USABLE_TLS1_3

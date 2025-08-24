@@ -32,7 +32,7 @@ Subject: [PATCH 18/43] QUIC: Handle EndOfEarlyData and MaxEarlyData
          return 1;
 --- a/ssl/statem/extensions_srvr.c
 +++ b/ssl/statem/extensions_srvr.c
-@@ -1896,12 +1896,20 @@ EXT_RETURN tls_construct_stoc_early_data
+@@ -1908,12 +1908,20 @@ EXT_RETURN tls_construct_stoc_early_data
                                           size_t chainidx)
  {
      if (context == SSL_EXT_TLS1_3_NEW_SESSION_TICKET) {

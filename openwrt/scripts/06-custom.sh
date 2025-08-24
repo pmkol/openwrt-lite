@@ -1,11 +1,11 @@
 #!/bin/bash -e
 
 ### Add new packages or patches below
-### For example, download alist from a third-party repository to package/new/alist
-### Then, add CONFIG_PACKAGE_luci-app-alist=y to the end of openwrt/23-config-common-custom
+### For example, download openlist from a third-party repository to package/new/openlist
+### Then, add CONFIG_PACKAGE_luci-app-openlist2=y to the end of openwrt/23-config-common-custom
 
-# alist - add new package
-git clone https://$github/sbwml/openwrt-alist package/new/alist
+# openlist - add new package
+git clone https://$github/sbwml/luci-app-openlist2 package/new/openlist
 
 # lrzsz - add patched package
 rm -rf feeds/packages/utils/lrzsz

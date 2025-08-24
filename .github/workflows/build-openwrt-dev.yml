@@ -2,6 +2,15 @@ name: Build OpenWrt 23.05 Dev
 
 on:
   workflow_dispatch:
+    inputs:
+      option:
+        description: 'Select the packages version'
+        required: true
+        default: 'latest'
+        type: choice
+        options:
+          - latest
+          - archive
 
 jobs:
   build:
@@ -72,6 +81,7 @@ jobs:
       run: |
         export GITHUB_REPO=${{ github.repository }}
         export OPENWRT_KEY=${{ secrets.OPENWRT_KEY }}
+        [[ "${{ github.event.inputs.option}}" == "archive" ]] && export ARCHIVE_BUILD=y
         bash <(curl -sS https://raw.githubusercontent.com/pmkol/openwrt-lite/main/openwrt/build.sh) ${{ matrix.tag.type }} ${{ matrix.model }}
 
     - name: Extensive logs after a failed compilation

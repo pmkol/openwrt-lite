@@ -315,7 +315,7 @@ Update referenced I-D versions.
              SSLfatal(s, SSL_AD_ILLEGAL_PARAMETER, SSL_R_INVALID_MAX_EARLY_DATA);
 --- a/ssl/statem/extensions_srvr.c
 +++ b/ssl/statem/extensions_srvr.c
-@@ -1902,7 +1902,7 @@ EXT_RETURN tls_construct_stoc_early_data
+@@ -1914,7 +1914,7 @@ EXT_RETURN tls_construct_stoc_early_data
              return EXT_RETURN_NOT_SENT;
  
  #ifndef OPENSSL_NO_QUIC
@@ -598,9 +598,9 @@ Update referenced I-D versions.
      unsigned char *iv;
 --- a/test/sslapitest.c
 +++ b/test/sslapitest.c
-@@ -10765,9 +10765,11 @@ static int test_multi_resume(int idx)
-     return testresult;
+@@ -10766,9 +10766,11 @@ static int test_multi_resume(int idx)
  }
+ 
  #ifndef OPENSSL_NO_QUIC
 -static int test_quic_set_encryption_secrets(SSL *ssl, OSSL_ENCRYPTION_LEVEL level,
 +static int test_quic_set_encryption_secrets(SSL *ssl,
@@ -612,7 +612,7 @@ Update referenced I-D versions.
  {
      test_printf_stderr("quic_set_encryption_secrets() %s, lvl=%d, len=%zd\n",
                         ssl->server ? "server" : "client", level, secret_len);
-@@ -10779,11 +10781,12 @@ static int test_quic_add_handshake_data(
+@@ -10780,11 +10782,12 @@ static int test_quic_add_handshake_data(
  {
      SSL *peer = (SSL*)SSL_get_app_data(ssl);
  

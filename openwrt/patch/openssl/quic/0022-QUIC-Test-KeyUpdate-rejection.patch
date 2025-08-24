@@ -12,7 +12,7 @@ integrated into the TLSProxy setup.
 
 --- a/test/sslapitest.c
 +++ b/test/sslapitest.c
-@@ -10889,6 +10889,17 @@ static int test_quic_api(void)
+@@ -10890,6 +10890,17 @@ static int test_quic_api(void)
              || !TEST_true(SSL_process_quic_post_handshake(clientssl)))
          goto end;
  
