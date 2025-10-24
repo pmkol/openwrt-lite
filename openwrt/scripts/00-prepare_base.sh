@@ -220,6 +220,15 @@ if [ "$ENABLE_LTO" = "y" ]; then
     sed -i "/TARGET_CFLAGS +=/ s/\$/ -ffat-lto-objects/" package/libs/openssl/Makefile
 fi
 
+# ubus - fix CVE-2025-62526
+sed -i 's/PKG_RELEASE:=1$/PKG_RELEASE:=2/' package/system/ubus/Makefile
+mkdir -p package/system/ubus/patches
+pushd package/system/ubus/patches
+    curl -sO https://$mirror/openwrt/patch/ubus/001-ubusd-Fix-out-of-bounds-access-in-event-register-message.patch
+    curl -sO https://$mirror/openwrt/patch/ubus/002-ubusd-fix-more-instances-of-missing-length-checks-for.patch
+    curl -sO https://$mirror/openwrt/patch/ubus/003-ubusd-fix-ACL-check-for-receiving-events.patch
+popd
+
 # nghttp3
 rm -rf feeds/packages/libs/nghttp3
 mv ../master/base-23.05/nghttp3 package/libs/nghttp3
