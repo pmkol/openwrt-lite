@@ -24,7 +24,7 @@ PKG_SOURCE_URL:= \
 PKG_HASH:=d80c34f5cf902dccf1f1b5df5ebb86d0392e37049e5d73df1b3abae72e4ffe8b
 
 PKG_LICENSE:=Apache-2.0
-PKG_LICENSE_FILES:=LICENSE
+PKG_LICENSE_FILES:=LICENSE.txt
 PKG_MAINTAINER:=Eneas U de Queiroz <cotequeiroz@gmail.com>
 PKG_CPE_ID:=cpe:/a:openssl:openssl
 PKG_CONFIG_DEPENDS:= \
