@@ -6,6 +6,10 @@ pkg_golang=$(curl -s https://github.com/pmkol/openwrt-gh-action-sdk/commit/5a59e
 git clone https://$github/$pkg_golang --depth 1 feeds/packages/lang/golang
 [ "$DEV_BUILD" = "y" ] && sed -i 's/GO_AMD64:=v1/GO_AMD64:=v2/g' feeds/packages/lang/golang/golang-values.mk
 
+# rust-bindgen - 0.72.1
+mkdir -p feeds/packages/devel/rust-bindgen
+curl -s https://$mirror/openwrt/patch/rust-bindgen/Makefile > feeds/packages/devel/rust-bindgen/Makefile
+
 # node - prebuilt
 rm -rf feeds/packages/lang/node/*
 curl -s https://$mirror/openwrt/patch/node/Makefile > feeds/packages/lang/node/Makefile
