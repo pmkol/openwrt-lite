@@ -1,11 +1,19 @@
 # OpenWrt Lite 23.05
 
+### End of Life ：
+- 由于 OpenWRT 25.12 内核已高于6.11版本，该项目已停止维护
+- 软件源将在2026年4月20日后停止维护，届时将无法通过软件源在线升级部分插件
+- 用户可以继续使用本项目编译 OpenWRT 23.05 及支持该版本的最新插件
+
 ### 基于原生 OpenWrt 优化的固件，提供高效、稳定的使用体验
 该项目使用自动构建的扩展软件源，优化、修复官方插件，补充官方源中未包含的常用插件
 
 仅需安装、配置一次，后续升级无需重新刷写、配置固件
 
 欢迎加入交流群：[Infinity Nikki](https://t.me/+xqUr1lp9FD0xZDM1)
+
+#### 固件下载：
+https://github.com/pmkol/openwrt-lite/releases
 
 #### 固件下载：
 https://github.com/pmkol/openwrt-lite/releases
